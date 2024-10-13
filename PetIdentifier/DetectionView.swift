@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DetectionView: View {
     @StateObject private var viewModel = DetectionViewModel()
+    
     @State var isShowingImagePicker: Bool = false
     @State var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State var showSourceTypeActionSheet: Bool = false
@@ -23,11 +24,13 @@ struct DetectionView: View {
                 BreedResultsView(breed: breed,
                                  accuracy: accuracy)
             }
+            SettingsButtonView(viewModel: viewModel, image: $viewModel.image)
+            .padding(.horizontal)
             ActionsButtonsView(image: $viewModel.image, classifyImage:
                                 viewModel.classifyImage,
                                reset: viewModel.reset)
+            
         }
-        .navigationTitle("Dog / Cat Detection")
         .actionSheet(isPresented: $showSourceTypeActionSheet) {
             ActionSheet(title: Text("Find an Image using:"), message: nil, buttons: [
                 .default(Text("Camera")) {

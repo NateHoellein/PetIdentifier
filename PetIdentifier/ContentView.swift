@@ -14,13 +14,7 @@ struct ContentView: View {
                 Text("Dog / Cat Identifier")
                     .font(.title)
                     .padding()
-                NavigationLink {
-                    DetectionView()
-                } label: {
-                    Text("Start Identifying")
-                        .font(.headline)
-                }
-                
+                DetectionView()
             }
         }
     }
