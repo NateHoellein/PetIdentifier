@@ -9,16 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView {
+            VStack {
+                Text("Dog / Cat Identifier")
+                    .font(.title)
+                    .padding()
+                NavigationLink {
+                    DetectionView()
+                } label: {
+                    Text("Start Identifying")
+                        .font(.headline)
+                }
+                
+            }
         }
-        .padding()
     }
 }
 
-#Preview {
+struct ContentView_Previews: PreviewProvider {
+  static var previews: some View {
     ContentView()
+  }
 }
