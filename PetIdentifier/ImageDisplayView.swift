@@ -36,6 +36,11 @@ struct ImageDisplayView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: 300)
                 .background(Color.black.opacity(0.1))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(.white, lineWidth: 2)
+                        .opacity(0.5)
+                )
                 .cornerRadius(10)
                 .shadow(radius: 10)
                 .onTapGesture {
